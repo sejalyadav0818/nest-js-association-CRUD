@@ -14,15 +14,15 @@ model User {
   id    Int     @default(autoincrement()) @id
   email String  @unique
   name  String?
-  posts Post[]
+  password_hash   String
+  reset_token     String?
+  google_id       String?     @unique
+  CreatedDate  DateTime @default(now())
+  ModifiedDate DateTime @default(now()) @updatedAt
+
 }
 
-model Post {
-  id        Int      @default(autoincrement()) @id
-  title     String
-  content   String?
-  published Boolean? @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
-}
-
+//implmenst this https://www.youtube.com/watch?v=uAKzFhE3rxU
+//https://www.youtube.com/watch?v=Qmv3mIR_FdE
+//login register logout  rset token 
+//node mailer https://www.youtube.com/watch?v=AClnCg_WCJk
